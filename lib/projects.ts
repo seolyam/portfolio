@@ -46,6 +46,10 @@ export const projects: Project[] = [
         stack: ["TypeScript", "React", "Tailwind CSS"],
       },
     ],
+    metrics: [
+      { value: "100+", label: "users" },
+      { value: "Still", label: "growing" },
+    ],
     featured: true,
   },
   {

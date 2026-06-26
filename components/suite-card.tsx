@@ -27,6 +27,21 @@ export function SuiteCard({ project }: { project: Project }) {
           </h3>
         </div>
 
+        {project.metrics && (
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
+            {project.metrics.map((metric) => (
+              <div key={metric.label}>
+                <p className="font-mono text-xl font-semibold tracking-tight text-zinc-50">
+                  {metric.value}
+                </p>
+                <p className="font-mono text-xs text-zinc-500">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
         <div className="flex min-h-0 flex-1 flex-col gap-2.5">
           {subItems.map((item) => (
             <div
