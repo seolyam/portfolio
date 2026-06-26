@@ -6,12 +6,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Lhiam Andrei Lingco — Full Stack Web Developer",
   description:
-    "Full Stack Web Developer & Open-Source Contributor based in Bacolod, Philippines. Architecting scalable web ecosystems with Next.js, TypeScript, and Supabase.",
+    "Full Stack Web Developer & Open-Source Contributor. Architecting scalable web ecosystems with Next.js, TypeScript, and Supabase.",
   metadataBase: new URL("https://github.com/seolyam"),
   openGraph: {
     title: "Lhiam Andrei Lingco — Full Stack Web Developer",
     description:
-      "Full Stack Web Developer & Open-Source Contributor based in Bacolod, Philippines.",
+      "Full Stack Web Developer & Open-Source Contributor.",
     type: "website",
   },
   robots: { index: true, follow: true },
