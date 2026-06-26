@@ -18,10 +18,6 @@ export default function Home() {
             ),
           )}
         </BentoGrid>
-
-        <footer className="mt-10 font-mono text-xs text-zinc-600">
-          <p>&copy; {new Date().getFullYear()} Lhiam Andrei Lingco</p>
-        </footer>
       </div>
     </main>
   );
