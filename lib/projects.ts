@@ -1,11 +1,3 @@
-import {
-  CalendarDays,
-  Gamepad2,
-  Images,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
-
 export type TextSegment = {
   text: string;
   bold?: boolean;
@@ -16,40 +8,49 @@ export type Metric = {
   label: string;
 };
 
-export type ProjectLink = {
-  url: string;
-  label: string;
+export type SubProject = {
+  title: string;
+  repositoryUrl: string;
+  description: string;
+  stack: string[];
 };
 
 export type Project = {
   title: string;
-  typeIcon: LucideIcon | LucideIcon[];
-  repositoryUrl: string | ProjectLink[];
-  description: TextSegment[];
+  logoSrc: string;
+  repositoryUrl?: string;
+  description?: TextSegment[];
   metrics?: Metric[];
-  stack: string[];
+  stack?: string[];
   featured?: boolean;
+  subItems?: SubProject[];
 };
 
 export const projects: Project[] = [
   {
     title: "Transmorpher Suite",
-    typeIcon: [Images, Gamepad2],
-    repositoryUrl: [
-      { url: "https://github.com/seolyam/transmorpher-hub", label: "Transmorpher Hub" },
-      { url: "https://github.com/Kirazul/Transmorpher", label: "Transmorpher Addon" }
+    logoSrc: "/images/transmorpher.png",
+    subItems: [
+      {
+        title: "Transmorpher",
+        repositoryUrl: "https://github.com/Kirazul/Transmorpher",
+        description:
+          "A full client-side appearance and morphing suite for World of Warcraft: Wrath of the Lich King 3.3.5a.",
+        stack: ["Lua", "C++"],
+      },
+      {
+        title: "Transmorpher Hub",
+        repositoryUrl: "https://github.com/seolyam/transmorpher-hub",
+        description:
+          "A community-driven web gallery built with Next.js and Supabase for sharing WotLK (3.3.5a) transmog loadouts.",
+        stack: ["TypeScript", "React", "Tailwind CSS"],
+      },
     ],
-    description: [
-      { text: "A full client-side appearance and morphing suite for " },
-      { text: "World of Warcraft: WotLK (3.3.5a)", bold: true },
-      { text: ", alongside a community-driven web gallery for sharing transmog loadouts." },
-    ],
-    stack: ["Next.js", "Supabase", "Lua", "WoW API"],
     featured: true,
   },
   {
     title: "GDGOC Event Platform",
-    typeIcon: CalendarDays,
+    logoSrc: "/images/gdg-logo.png",
     repositoryUrl: "https://github.com/seolyam/event",
     description: [
       { text: "Official event and project showcase platform for " },
@@ -60,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     title: "Umamin",
-    typeIcon: Users,
+    logoSrc: "/images/umamin.png",
     repositoryUrl: "https://github.com/omsimos/umamin",
     description: [
       { text: "A social platform for sending and receiving encrypted anonymous messages. Reached over " },
