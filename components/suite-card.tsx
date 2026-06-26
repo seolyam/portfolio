@@ -11,7 +11,7 @@ export function SuiteCard({ project }: { project: Project }) {
 
   return (
     <BentoCard className="md:col-span-2 lg:col-span-2 lg:row-span-2">
-      <div className="flex h-full flex-col gap-4 p-5 sm:p-6">
+      <div className="flex h-full flex-col gap-3 p-4 sm:p-5">
         <div className="flex items-center gap-3">
           <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03]">
             <Image
@@ -27,11 +27,11 @@ export function SuiteCard({ project }: { project: Project }) {
           </h3>
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col gap-3">
+        <div className="flex min-h-0 flex-1 flex-col gap-2.5">
           {subItems.map((item) => (
             <div
               key={item.title}
-              className="flex flex-1 flex-col rounded-lg border border-white/[0.04] bg-white/[0.01] p-4"
+              className="flex flex-1 flex-col rounded-lg border border-white/[0.04] bg-white/[0.01] p-3.5"
             >
               <div className="flex items-center justify-between gap-2">
                 <h4 className="text-sm font-medium text-zinc-100">

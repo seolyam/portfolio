@@ -7,7 +7,7 @@ import { projects } from "@/lib/projects";
 export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col items-center px-5 py-10 sm:px-8 sm:py-16">
-      <div className="my-auto w-full max-w-6xl">
+      <div className="my-auto w-full max-w-5xl">
         <BentoGrid>
           <HeroCard />
           {projects.map((project) =>
