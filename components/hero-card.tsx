@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { BentoCard } from "./bento-card";
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/seolyam", icon: Github },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/seolyam/", icon: Linkedin },
   { label: "Email", href: "mailto:leeyam.dev@gmail.com", icon: Mail },
+  { label: "Resume", href: "/resume.pdf", icon: FileText },
 ] as const;
 
 export function HeroCard() {
@@ -20,9 +21,11 @@ export function HeroCard() {
             Lhiam Andrei Lingco
           </h1>
           <p className="max-w-xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-            I architect scalable web ecosystems and contribute to high-traffic
-            open-source platforms. Magna Cum Laude IT graduate obsessed with
-            performance optimization and clean code.
+            I build scalable web applications and optimize high-traffic
+            open-source platforms. Beyond my primary focus in web development,
+            I enjoy engineering custom scripts and performance mods for gaming
+            clients. Magna Cum Laude IT graduate dedicated to clean, impactful
+            code.
           </p>
         </div>
 
