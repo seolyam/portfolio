@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Lhiam Andrei Lingco — Full Stack Web Developer",
+    title: "Lhiam Andrei Lingco",
     description:
       "Full Stack Web Developer & Open-Source Contributor.",
     images: [],
