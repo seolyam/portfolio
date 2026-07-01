@@ -4,12 +4,12 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Lhiam Andrei Lingco — Full Stack Web Developer",
+  title: "Lhiam Andrei Lingco",
   description:
     "Full Stack Web Developer & Open-Source Contributor. Architecting scalable web ecosystems with Next.js, TypeScript, and Supabase.",
   metadataBase: new URL("https://github.com/seolyam"),
   openGraph: {
-    title: "Lhiam Andrei Lingco — Full Stack Web Developer",
+    title: "Lhiam Andrei Lingco",
     description:
       "Full Stack Web Developer & Open-Source Contributor.",
     type: "website",
