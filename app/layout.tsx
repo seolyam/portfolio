@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     description:
       "Full Stack Web Developer & Open-Source Contributor.",
     type: "website",
+    images: [],
+  },
+  twitter: {
+    card: "summary",
+    title: "Lhiam Andrei Lingco — Full Stack Web Developer",
+    description:
+      "Full Stack Web Developer & Open-Source Contributor.",
+    images: [],
   },
   robots: { index: true, follow: true },
 };
