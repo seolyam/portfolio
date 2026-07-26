@@ -8,9 +8,12 @@ const LOGO_CLASS = "object-contain grayscale invert contrast-125";
 
 export function SuiteCard({ project }: { project: Project }) {
   const subItems = project.subItems ?? [];
+  const spans = project.featured
+    ? "md:col-span-2 lg:col-span-2 lg:row-span-2"
+    : "lg:col-span-1 lg:row-span-2";
 
   return (
-    <BentoCard className="md:col-span-2 lg:col-span-2 lg:row-span-2">
+    <BentoCard className={spans}>
       <div className="flex h-full flex-col gap-3 p-4 sm:p-5">
         <div className="flex items-center gap-3">
           <span className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03]">

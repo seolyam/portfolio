@@ -7,7 +7,9 @@ import type { Project } from "@/lib/projects";
 const LOGO_CLASS = "object-contain grayscale invert contrast-125";
 
 export function ProjectCard({ project }: { project: Project }) {
-  const spans = "lg:col-span-1 lg:row-span-1";
+  const spans = project.featured 
+    ? "md:col-span-2 lg:col-span-2 lg:row-span-1" 
+    : "lg:col-span-1 lg:row-span-1";
 
   return (
     <BentoCard className={spans}>

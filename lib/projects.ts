@@ -28,6 +28,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Art N Me",
+    logoSrc: "/images/artnme.png",
+    repositoryUrl: "https://github.com/seolyam/artnme",
+    description: [
+      { text: "Engineered a full-stack digital printing management system to streamline shop operations and manage customer quote requests." },
+      { text: "\n\nDeveloped a 3D interactive apparel customizer utilizing " },
+      { text: "React Three Fiber and Three.js", bold: true },
+      { text: ", enabling users to upload graphics, configure colors, and export 360° designs." }
+    ],
+    stack: ["Next.js", "TypeScript", "Supabase", "Three.js"],
+    featured: true,
+  },
+  {
     title: "Transmorpher Suite",
     logoSrc: "/images/transmorpher.png",
     subItems: [
@@ -50,7 +63,6 @@ export const projects: Project[] = [
       { value: "100+", label: "users" },
       { value: "Still", label: "growing" },
     ],
-    featured: true,
   },
   {
     title: "GDGOC Event Platform",
