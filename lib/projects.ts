@@ -29,7 +29,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Art N Me",
-    logoSrc: "/images/artnme.png",
+    logoSrc: "/images/artnme-logo.jpg",
     repositoryUrl: "https://github.com/seolyam/artnme",
     description: [
       { text: "Engineered a full-stack digital printing management system to streamline shop operations and manage customer quote requests." },
