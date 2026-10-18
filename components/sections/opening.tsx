@@ -16,19 +16,24 @@ export function Opening() {
   return (
     <GridSection section={getSection("opening")}>
       <div className={`pt-16 pb-16 md:pt-24 md:pb-20 ${PAD_X}`}>
+        {/* Set to the column's full measure, the second line stepped in under a crimson deck. */}
         <h1
           id="opening-title"
-          className="font-serif text-[clamp(3.25rem,10vw,7.5rem)] leading-[0.92] tracking-[-0.03em] text-ink"
+          className="font-serif text-[clamp(3.25rem,13.4vw,11rem)] leading-[0.88] tracking-[-0.035em] text-ink"
         >
-          Lhiam Andrei
-          <br />
-          Lingco
+          <span className="block">Lhiam Andrei</span>
+          <span className="flex flex-wrap items-baseline gap-x-[0.35em] md:pl-[0.9em]">
+            Lingco
+            <span className="text-[clamp(1.125rem,2.2vw,1.875rem)] italic tracking-[-0.01em] text-crimson">
+              {site.role.toLowerCase()}
+            </span>
+          </span>
         </h1>
 
         <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-6">
-            <p className="max-w-[34rem] text-lg leading-relaxed text-pretty text-ink-muted sm:text-xl">
-              {site.bio}
+            <p className="max-w-[34rem] font-serif text-[clamp(1.375rem,2.1vw,1.75rem)] leading-[1.3] tracking-[-0.01em] text-pretty text-ink">
+              {site.bio.lead} <span className="text-ink-muted">{site.bio.aside}</span>
             </p>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
               {links.map((link) => (
