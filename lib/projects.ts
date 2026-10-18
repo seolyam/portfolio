@@ -11,14 +11,20 @@ export type Metric = {
 export type SubProject = {
   title: string;
   repositoryUrl: string;
+  liveUrl?: string;
   description: string;
   stack: string[];
 };
 
+export type ProjectStatus = "Live" | "In development" | "Archived";
+
 export type Project = {
   title: string;
   logoSrc: string;
+  role: string;
+  status: ProjectStatus;
   repositoryUrl?: string;
+  liveUrl?: string;
   description?: TextSegment[];
   metrics?: Metric[];
   stack?: string[];
@@ -30,19 +36,24 @@ export const projects: Project[] = [
   {
     title: "Art N Me",
     logoSrc: "/images/artnme-logo.jpg",
+    role: "Creator",
+    status: "Live",
     repositoryUrl: "https://github.com/seolyam/artnme",
+    liveUrl: "https://artnme.vercel.app",
     description: [
-      { text: "Engineered a full-stack digital printing management system to streamline shop operations and manage customer quote requests." },
+      { text: "Engineered a full-stack order management system and public site for a local printing business, streamlining shop operations and customer quote requests." },
       { text: "\n\nDeveloped a 3D interactive apparel customizer utilizing " },
       { text: "React Three Fiber and Three.js", bold: true },
-      { text: ", enabling users to upload graphics, configure colors, and export 360° designs." }
+      { text: ", enabling users to upload graphics, configure colors, and export 360° designs." },
     ],
-    stack: ["Next.js", "TypeScript", "Supabase", "Three.js"],
+    stack: ["Next.js", "TypeScript", "Supabase", "Drizzle ORM", "Three.js"],
     featured: true,
   },
   {
     title: "Transmorpher Suite",
     logoSrc: "/images/transmorpher.png",
+    role: "Contributor / Hub creator",
+    status: "Live",
     subItems: [
       {
         title: "Transmorpher",
@@ -54,35 +65,40 @@ export const projects: Project[] = [
       {
         title: "Transmorpher Hub",
         repositoryUrl: "https://github.com/seolyam/transmorpher-hub",
+        liveUrl: "https://transmorpher-hub.vercel.app",
         description:
-          "A community-driven web gallery built with Next.js and Supabase for sharing WotLK (3.3.5a) transmog loadouts.",
-        stack: ["TypeScript", "React", "Tailwind CSS"],
+          "A community gallery for sharing WotLK (3.3.5a) transmog loadouts, with OAuth sign-in and social features.",
+        stack: ["Next.js", "TypeScript", "Supabase"],
       },
     ],
-    metrics: [
-      { value: "100+", label: "users" },
-      { value: "Still", label: "growing" },
-    ],
+    metrics: [{ value: "100+", label: "users" }],
   },
   {
     title: "GDGOC Event Platform",
     logoSrc: "/images/gdg-logo.png",
+    role: "Lead developer",
+    status: "Live",
     repositoryUrl: "https://github.com/seolyam/event",
+    liveUrl: "https://gdgoc-event.vercel.app",
     description: [
       { text: "Official event and project showcase platform for " },
       { text: "Google Developer Groups on Campus USLS", bold: true },
-      { text: "." },
+      { text: ", serving a community of more than 1,000 participants." },
     ],
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle ORM"],
+    metrics: [{ value: "1,000+", label: "participants" }],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
   {
     title: "Umamin",
     logoSrc: "/images/umamin.png",
+    role: "QA / Contributor",
+    status: "Live",
     repositoryUrl: "https://github.com/omsimos/umamin",
+    liveUrl: "https://umamin.link",
     description: [
-      { text: "A social platform for sending and receiving encrypted anonymous messages. Reached over " },
+      { text: "An open-source platform for encrypted anonymous messages. I ran QA and shipped feature updates alongside the founders as it grew past " },
       { text: "2.6 million users", bold: true },
-      { text: " with more than " },
+      { text: " and " },
       { text: "14.5 million page visits", bold: true },
       { text: "." },
     ],
@@ -90,6 +106,6 @@ export const projects: Project[] = [
       { value: "2.6M+", label: "users" },
       { value: "14.5M", label: "page visits" },
     ],
-    stack: ["Next.js", "TypeScript", "Supabase"],
+    stack: ["TypeScript", "React", "Drizzle ORM", "Turso"],
   },
 ];
