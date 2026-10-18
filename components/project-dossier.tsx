@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import type { Metric, Project, TextSegment } from "@/lib/projects";
+import type { Metric, Plate, Project, TextSegment } from "@/lib/projects";
 import { PAD_X } from "./primitives/spacing";
 
 export function OutLink({
@@ -18,7 +18,7 @@ export function OutLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.06em] text-ink underline decoration-hairline-strong underline-offset-4 transition-colors duration-200 hover:decoration-ink"
+      className="inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.06em] text-ink underline decoration-hairline-strong underline-offset-4 transition-colors duration-200 hover:decoration-crimson"
     >
       {children}
       <ArrowUpRight aria-hidden className="size-3" strokeWidth={1.5} />
@@ -118,6 +118,27 @@ function Title({ project, featured }: { project: Project; featured?: boolean }) 
   );
 }
 
+/** The live site as a printed figure: in ink until the dossier is engaged, then in colour. */
+function PlateFigure({ plate, index, liveUrl }: { plate: Plate; index: string; liveUrl?: string }) {
+  return (
+    <figure>
+      <div className="plate relative aspect-[16/9] overflow-hidden border border-hairline bg-stone">
+        <Image
+          src={plate.src}
+          alt={plate.alt}
+          fill
+          sizes="(min-width: 1200px) 1070px, calc(100vw - 6rem)"
+          className="object-cover object-top"
+        />
+      </div>
+      <figcaption className="mt-3 flex justify-between gap-6 font-mono text-[11px] tracking-[0.06em] text-ink-muted">
+        <span>Fig. {index}</span>
+        {liveUrl && <span>{new URL(liveUrl).host}</span>}
+      </figcaption>
+    </figure>
+  );
+}
+
 function SourceLinks({ project }: { project: Pick<Project, "title" | "repositoryUrl" | "liveUrl"> }) {
   return (
     <div className="flex gap-5">
@@ -153,6 +174,9 @@ export function ProjectDossier({ project, index }: { project: Project; index: st
             </div>
           </div>
         </div>
+        {project.plate && (
+          <PlateFigure plate={project.plate} index={index} liveUrl={project.liveUrl} />
+        )}
       </article>
     );
   }

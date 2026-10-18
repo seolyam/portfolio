@@ -49,7 +49,7 @@ export function SelectedMoves() {
             <span className="mt-4 block max-w-[36ch] text-sm leading-relaxed text-ink-muted">
               Experiments, mods and tooling that sit off the main line.
             </span>
-            <span className="mt-6 inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.06em] text-ink underline decoration-hairline-strong underline-offset-4 transition-colors duration-200 group-hover:decoration-ink">
+            <span className="mt-6 inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.06em] text-ink underline decoration-hairline-strong underline-offset-4 transition-colors duration-200 group-hover:decoration-crimson">
               {github.display}
               <ArrowUpRight aria-hidden className="size-3" strokeWidth={1.5} />
             </span>
