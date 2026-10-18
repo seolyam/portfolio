@@ -179,7 +179,7 @@ export function CommandMenu() {
         className="flex items-center gap-2.5 border-l border-hairline px-4 font-mono text-[11px] tracking-[0.06em] text-ink-muted transition-colors duration-200 hover:text-ink"
       >
         Command
-        <kbd className="hidden border border-hairline px-1.5 py-px font-mono text-[10px] pointer-fine:inline-block">
+        <kbd className="hidden border border-hairline px-1.5 py-px font-mono text-[10px] sm:pointer-fine:inline-block">
           {isMac ? "⌘" : "Ctrl"} K
         </kbd>
       </button>

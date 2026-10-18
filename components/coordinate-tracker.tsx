@@ -36,7 +36,7 @@ export function CoordinateTracker() {
   return (
     <span
       aria-hidden
-      className="hidden items-center gap-1.5 border-l border-hairline px-4 font-mono text-[11px] tracking-[0.06em] text-ink-muted tabular-nums pointer-fine:flex"
+      className="hidden items-center gap-1.5 border-l border-hairline px-4 font-mono text-[11px] tracking-[0.06em] text-ink-muted tabular-nums sm:pointer-fine:flex"
     >
       POS <span>{"//"}</span>
       <span ref={readout} className="inline-block w-[2ch] text-ink">
