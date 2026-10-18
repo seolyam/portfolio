@@ -12,7 +12,15 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
-          <p>Set in Newsreader &amp; Geist · 1–0</p>
+          <p className="flex flex-col gap-2 sm:flex-row sm:gap-8">
+            <span>Set in Newsreader &amp; Geist · 1–0</span>
+            <a
+              href="#opening"
+              className="text-ink underline decoration-hairline-strong underline-offset-4 transition-colors duration-200 hover:decoration-crimson"
+            >
+              Back to the opening ↑
+            </a>
+          </p>
         </div>
       </GridContainer>
     </footer>
