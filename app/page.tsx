@@ -1,30 +1,30 @@
-import { BentoGrid } from "@/components/bento-grid";
-import { HeroCard } from "@/components/hero-card";
-import { ProjectCard } from "@/components/project-card";
-import { SectionHeader } from "@/components/section-header";
-import { SuiteCard } from "@/components/suite-card";
-import { projects } from "@/lib/projects";
+import { OpeningBoard } from "@/components/opening-board";
+import { PageMotion } from "@/components/page-motion";
+import { GridContainer } from "@/components/primitives/grid-container";
+import { Arsenal } from "@/components/sections/arsenal";
+import { Endgame } from "@/components/sections/endgame";
+import { Opening } from "@/components/sections/opening";
+import { Record } from "@/components/sections/record";
+import { SelectedMoves } from "@/components/sections/selected-moves";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
   return (
-    <main className="flex min-h-dvh flex-col items-center px-5 py-10 sm:px-8 sm:py-16">
-      <div className="my-auto w-full max-w-5xl flex flex-col gap-2">
-        <BentoGrid>
-          <HeroCard />
-        </BentoGrid>
-        
-        <SectionHeader title="Featured Projects" />
-        
-        <BentoGrid>
-          {projects.map((project) =>
-            project.subItems ? (
-              <SuiteCard key={project.title} project={project} />
-            ) : (
-              <ProjectCard key={project.title} project={project} />
-            ),
-          )}
-        </BentoGrid>
-      </div>
-    </main>
+    <>
+      <SiteHeader />
+      <main id="main">
+        <GridContainer>
+          <Opening />
+          <Record />
+          <SelectedMoves />
+          <Arsenal />
+          <Endgame />
+        </GridContainer>
+      </main>
+      <SiteFooter />
+      <OpeningBoard />
+      <PageMotion />
+    </>
   );
 }

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 4.5 30 30">
+  <style>
+    .ground { fill: #faf8f5; }
+    .piece { fill: #141413; }
+    @media (prefers-color-scheme: dark) {
+      .ground { fill: #0e0e0d; }
+      .piece { fill: #f0eee6; }
+    }
+  </style>
+  <rect class="ground" x="5" y="4.5" width="30" height="30" />
+  <path class="piece" d="M13 30.5 L15.5 21 L11.5 18.8 L11 15.6 L18 9.5 L19 6 L21.5 8.5 C27.5 9.5 29.5 15.5 28.5 22 L27.5 30.5 Z" />
+  <path class="piece" d="M10 33 H30 V30.5 H10 Z" />
+  <circle class="ground" cx="17.6" cy="12.8" r="0.95" />
+</svg>

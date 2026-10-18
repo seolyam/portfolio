@@ -1,26 +1,34 @@
 import type { Metadata } from "next";
+import { Newsreader } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { motionScript } from "@/lib/motion";
+import { site } from "@/lib/site";
+import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Lhiam Andrei Lingco",
-  description:
-    "Full Stack Web Developer & Open-Source Contributor. Architecting scalable web ecosystems with Next.js, TypeScript, and Supabase.",
-  metadataBase: new URL("https://github.com/seolyam"),
+  title: site.name,
+  description: site.description,
+  metadataBase: new URL(site.url),
   openGraph: {
-    title: "Lhiam Andrei Lingco",
-    description:
-      "Full Stack Web Developer & Open-Source Contributor.",
+    title: site.name,
+    description: site.description,
+    url: "/",
     type: "website",
-    images: [],
   },
   twitter: {
     card: "summary",
-    title: "Lhiam Andrei Lingco",
-    description:
-      "Full Stack Web Developer & Open-Source Contributor.",
-    images: [],
+    title: site.name,
+    description: site.description,
   },
   robots: { index: true, follow: true },
 };
@@ -29,8 +37,22 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="min-h-dvh font-sans text-zinc-300 antialiased">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${newsreader.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+      </head>
+      <body className="min-h-dvh bg-paper font-sans text-ink antialiased">
+        <a
+          href="#main"
+          className="sr-only z-50 bg-paper px-4 py-2 font-mono text-xs text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:border focus:border-hairline"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>
