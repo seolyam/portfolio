@@ -16,6 +16,9 @@
   --piece-black: var(--text-primary);
   --backdrop: rgba(20, 20, 19, 0.18);
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Paper grain: ink speckle by day, chalk by night */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-opacity: 0.12;
   color-scheme: light;
 }
 
@@ -32,6 +35,8 @@
   --piece-white: var(--text-primary);
   --piece-black: var(--bg-primary);
   --backdrop: rgba(0, 0, 0, 0.55);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.94 0 0 0 0 0.93 0 0 0 0 0.9 0 0 0 .9 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-opacity: 0.07;
   color-scheme: dark;
 }
 
@@ -70,6 +75,48 @@
     outline: 1px solid var(--text-primary);
     outline-offset: 3px;
   }
+
+  :is(h1, h2, h3) {
+    text-wrap: balance;
+  }
+
+  /*
+   * A static noise tile over the whole viewport so flat cream and ink read as printed stock.
+   * Plain alpha, no blend mode: a fixed layer that never repaints on scroll.
+   */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background-image: var(--grain);
+    background-size: 180px;
+    opacity: var(--grain-opacity);
+  }
+}
+
+/* Project plates: printed in ink on pointer devices, colour when the dossier is engaged. */
+.plate img {
+  transition:
+    filter 700ms var(--ease-standard),
+    transform 900ms var(--ease-standard);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .plate img {
+    filter: grayscale(1) sepia(0.12) contrast(1.04);
+  }
+
+  .dossier:hover .plate img,
+  .dossier:focus-within .plate img {
+    filter: none;
+    transform: scale(1.015);
+  }
+}
+
+[data-theme="night"] .plate img {
+  opacity: 0.9;
 }
 
 /* Tactical dossier: stone shift, crimson edge, staggered metadata */
@@ -228,7 +275,8 @@
 }
 
 @media print {
-  .opening-board {
+  .opening-board,
+  body::after {
     display: none !important;
   }
 
