@@ -31,14 +31,14 @@ function Caret() {
 export function Endgame() {
   return (
     <GridSection section={getSection("endgame")}>
-      <div className="grid gap-px bg-hairline lg:grid-cols-12">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-px bg-hairline lg:grid-cols-12">
         <div className={`bg-paper py-14 md:py-20 lg:col-span-7 ${PAD_X}`}>
           <h2
             id="endgame-title"
             data-motion="title"
             className="font-serif text-[clamp(3rem,7vw,5.5rem)] leading-[0.95] tracking-[-0.03em] text-ink"
           >
-            Your move.
+            Your move<span className="text-crimson">.</span>
           </h2>
           <p
             data-motion="place"
