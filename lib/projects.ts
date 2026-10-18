@@ -18,6 +18,12 @@ export type SubProject = {
 
 export type ProjectStatus = "Live" | "In development" | "Archived";
 
+/** A first-viewport capture of the live site, shown as a figure plate. */
+export type Plate = {
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   title: string;
   logoSrc: string;
@@ -29,6 +35,7 @@ export type Project = {
   metrics?: Metric[];
   stack?: string[];
   featured?: boolean;
+  plate?: Plate;
   subItems?: SubProject[];
 };
 
@@ -48,6 +55,10 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "TypeScript", "Supabase", "Drizzle ORM", "Three.js"],
     featured: true,
+    plate: {
+      src: "/images/artnme-plate.jpg",
+      alt: "The Art N Me homepage: a digital print studio hero beside a jersey proof.",
+    },
   },
   {
     title: "Transmorpher Suite",
