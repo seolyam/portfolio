@@ -6,7 +6,11 @@ export const site = {
   email: "leeyam.dev@gmail.com",
   description:
     "Full-stack engineer building scalable web systems with Next.js, TypeScript, and Supabase.",
-  bio: "I build full-stack web applications, from the data model to the interface, and contribute to open-source platforms at scale. Off the main line, I write client-side scripts and mods for game clients.",
+  /** Set as one paragraph: the lead in ink, the aside muted. */
+  bio: {
+    lead: "I build full-stack web applications, from the data model to the interface, and contribute to open-source platforms at scale.",
+    aside: "Off the main line, I write client-side scripts and mods for game clients.",
+  },
   focus: "Next.js · TypeScript · Supabase",
   lead: "Web Dev Lead, GDG on Campus USLS",
   scale: "Umamin contributor, 2.6M+ users",
