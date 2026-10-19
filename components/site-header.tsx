@@ -1,5 +1,4 @@
 import { CommandMenu } from "./command-menu";
-import { CoordinateTracker } from "./coordinate-tracker";
 import { GridContainer } from "./primitives/grid-container";
 import { SectionNav } from "./section-nav";
 import { ThemeToggle } from "./theme-toggle";
@@ -20,7 +19,6 @@ export function SiteHeader() {
           <SectionNav />
 
           <div className="ml-auto flex items-stretch">
-            <CoordinateTracker />
             <CommandMenu />
             <ThemeToggle />
           </div>
