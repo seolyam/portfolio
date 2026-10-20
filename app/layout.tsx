@@ -72,6 +72,9 @@ export default function RootLayout({
       className={`${newsreader.variable} ${GeistSans.variable} ${GeistMono.variable}`}
     >
       <head>
+        {process.env.NEXT_PUBLIC_FB_APP_ID && (
+          <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FB_APP_ID} />
+        )}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script dangerouslySetInnerHTML={{ __html: motionScript }} />
       </head>
