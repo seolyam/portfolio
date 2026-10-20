@@ -1,11 +1,11 @@
 export const site = {
   name: "Lhiam Andrei Lingco",
   shortName: "Lhiam Lingco",
-  role: "Full-stack engineer",
+  role: "Software engineer",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://seolyam.com",
   email: "leeyam.dev@gmail.com",
   description:
-    "Full-stack engineer building scalable web systems with Next.js, TypeScript, and Supabase.",
+    "Software engineer building scalable web systems with Next.js, TypeScript, and Supabase, plus game client scripting.",
   /** Set as one paragraph: the lead in ink, the aside muted. */
   bio: {
     lead: "I build full-stack web applications, from the data model to the interface, and contribute to open-source platforms at scale.",
