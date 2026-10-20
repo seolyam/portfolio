@@ -3,7 +3,7 @@ import { Newsreader } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { motionScript } from "@/lib/motion";
-import { site } from "@/lib/site";
+import { links, site } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -16,21 +16,50 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: site.name,
+  title: {
+    default: `${site.name} | ${site.role}`,
+    template: `%s | ${site.shortName}`,
+  },
   description: site.description,
   metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  keywords: [
+    "Lhiam Lingco",
+    "software engineer",
+    "full-stack developer",
+    "game development",
+    "Next.js",
+    "TypeScript",
+    "Supabase",
+    "portfolio",
+  ],
   openGraph: {
-    title: site.name,
+    title: `${site.name} | ${site.role}`,
     description: site.description,
     url: "/",
+    siteName: site.name,
+    locale: "en_PH",
     type: "website",
   },
   twitter: {
-    card: "summary",
-    title: site.name,
+    card: "summary_large_image",
+    title: `${site.name} | ${site.role}`,
     description: site.description,
   },
   robots: { index: true, follow: true },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: site.role,
+  email: `mailto:${site.email}`,
+  description: site.description,
+  sameAs: links.filter((l) => l.id !== "resume").map((l) => l.href),
 };
 
 export default function RootLayout({
@@ -54,6 +83,10 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </body>
     </html>
   );
