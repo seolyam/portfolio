@@ -47,7 +47,7 @@ describe("squareAt", () => {
 
 describe("squareDelta", () => {
   it("counts files rightward and ranks downward, as the board is drawn", () => {
-    expect(squareDelta(SOLUTION.from, SOLUTION.to)).toEqual({ x: 0, y: 1 });
+    expect(squareDelta(SOLUTION.from, SOLUTION.to)).toEqual({ x: -1, y: -1 });
     expect(squareDelta("c4", "d5")).toEqual({ x: 1, y: -1 });
     expect(squareDelta("a1", "h8")).toEqual({ x: 7, y: -7 });
   });
@@ -90,7 +90,7 @@ describe("puzzle position", () => {
     expect(board[SOLUTION.from]).toBe("K");
   });
 
-  it("mates by discovered check: the king steps aside and the rook strikes", () => {
+  it("mates by discovered check: the king steps forward and the rook strikes", () => {
     const game = new Chess(PUZZLE_FEN);
     game.move({ from: SOLUTION.from, to: SOLUTION.to });
     expect(game.isCheckmate()).toBe(true);
@@ -105,21 +105,21 @@ describe("puzzle position", () => {
 });
 
 describe("isSolution", () => {
-  it("accepts only Kf8-f7", () => {
-    expect(isSolution("f8", "f7")).toBe(true);
-    expect(isSolution("f8", "e7")).toBe(false);
-    expect(isSolution("e8", "e7")).toBe(false);
-    expect(isSolution("c4", "d5")).toBe(false);
+  it("accepts only Kh2-g3", () => {
+    expect(isSolution("h2", "g3")).toBe(true);
+    expect(isSolution("h2", "h3")).toBe(false);
+    expect(isSolution("h1", "h3")).toBe(false);
+    expect(isSolution("g1", "f3")).toBe(false);
   });
 });
 
 describe("matchesSolution", () => {
-  it.each(["Kf7#", "kf7", "Kf7", "Kf8f7", "Kf8-f7#", "f8f7", "f8-f7", " Kf7# ", "Kf7+"])(
+  it.each(["Kg3#", "kg3", "Kg3", "Kh2g3", "Kh2-g3#", "h2g3", "h2-g3", " Kg3# ", "Kg3+"])(
     "accepts %j",
     (input) => expect(matchesSolution(input)).toBe(true),
   );
 
-  it.each(["", "f7", "Ke7", "Kg8", "Kxf7", "Bxd5", "Re7", "Kf7#x"])("rejects %j", (input) =>
+  it.each(["", "g3", "Kh3", "Kg1", "Kxg3", "Nf3", "Rh1", "Kg3#x"])("rejects %j", (input) =>
     expect(matchesSolution(input)).toBe(false),
   );
 });
@@ -127,12 +127,12 @@ describe("matchesSolution", () => {
 describe("movePiece", () => {
   it("returns a new board with the piece relocated and the original untouched", () => {
     const board = parsePlacement(PUZZLE_FEN);
-    const next = movePiece(board, "c4", "d5");
-    expect(next.d5).toBe("B");
-    expect(next.c4).toBeUndefined();
+    const next = movePiece(board, "c6", "g2");
+    expect(next.g2).toBe("q");
+    expect(next.c6).toBeUndefined();
     expect(Object.keys(next)).toHaveLength(Object.keys(board).length - 1);
-    expect(board.c4).toBe("B");
-    expect(board.d5).toBe("n");
+    expect(board.c6).toBe("q");
+    expect(board.g2).toBe("P");
   });
 });
 
@@ -140,9 +140,9 @@ describe("describeMove", () => {
   const board = parsePlacement(PUZZLE_FEN);
 
   it("writes long algebraic notation, marking captures with x", () => {
-    expect(describeMove(board, "f8", "f7")).toBe("Kf8-f7");
-    expect(describeMove(board, "c4", "d5")).toBe("Bc4xd5");
-    expect(describeMove(board, "e8", "e1")).toBe("Re8-e1");
+    expect(describeMove(board, "h2", "g3")).toBe("Kh2-g3");
+    expect(describeMove(board, "c6", "g2")).toBe("Qc6xg2");
+    expect(describeMove(board, "g1", "f3")).toBe("Ng1-f3");
   });
 
   it("omits the letter for pawns", () => {

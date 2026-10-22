@@ -13,16 +13,16 @@ export const squares: string[] = Array.from(
 );
 
 /**
- * Composed for Lelouch's line. White is a queen down and black threatens mate,
- * but the rook on e8 can't strike while its own king stands in the way.
- * The king steps aside first, and the rook follows with mate.
+ * White is far behind on material and black threatens Qxg2#, but the rook on h1
+ * can't strike while its own king hides in front of it on h2.
+ * The king steps forward out of shelter, and the rook follows with mate.
  */
-export const PUZZLE_FEN = "4RK1k/pp4pp/1q6/3n4/2B5/6P1/P2r1P1P/8 w - - 0 1";
+export const PUZZLE_FEN = "6rk/pb4p1/2q3p1/8/8/8/PP3PPK/6NR w - - 0 1";
 
-export const SOLUTION = { from: "f8", to: "f7", san: "Kf7#" } as const;
+export const SOLUTION = { from: "h2", to: "g3", san: "Kg3#" } as const;
 
-/** The discovered check the king's move unleashes: rook on e8 onto the king on h8. */
-export const CHECK = { from: "e8", to: "h8" } as const;
+/** The discovered check the king's move unleashes: rook on h1 onto the king on h8. */
+export const CHECK = { from: "h1", to: "h8" } as const;
 
 /** Dispatched on window by the command menu to play the solution on the board. */
 export const PLAY_SOLUTION_EVENT = "endgame:play";
@@ -74,11 +74,11 @@ export function movePiece(board: Board, from: string, to: string): Board {
 export const isSolution = (from: string, to: string) =>
   from === SOLUTION.from && to === SOLUTION.to;
 
-/** Accepts the mating move as typed text: Kf7#, Kf7, Kf8-f7, f8f7… */
+/** Accepts the mating move as typed text: Kg3#, Kg3, Kh2-g3, h2g3… */
 export const matchesSolution = (input: string) =>
-  /^(k(f8)?-?f7|f8-?f7)[+#]?$/i.test(input.trim());
+  /^(k(h2)?-?g3|h2-?g3)[+#]?$/i.test(input.trim());
 
-/** Long algebraic notation: Bc4xd5, Kf8-f7, a2-a4. */
+/** Long algebraic notation: Qc6xg2, Kh2-g3, a2-a4. */
 export function describeMove(board: Board, from: string, to: string) {
   const piece = board[from];
   const letter = piece && piece.toUpperCase() !== "P" ? piece.toUpperCase() : "";

@@ -436,9 +436,7 @@ export function EndgameBoard() {
               data-verdict
               className="mt-4 flex items-center justify-between gap-4 font-mono text-[11px] tracking-[0.06em] text-ink-muted"
             >
-              <p>
-                1. {SOLUTION.san} <span aria-hidden>·</span> Lelouch vi Britannia, Code Geass
-              </p>
+              <p>1. {SOLUTION.san}</p>
               <button
                 type="button"
                 onClick={reset}
