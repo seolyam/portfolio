@@ -18,7 +18,7 @@ export const arsenal = [
   },
   {
     title: "Quality",
-    summary: "Unit and end-to-end tests, and QA on a platform with 2.6M users.",
+    summary: "Unit and end-to-end tests, and QA on a platform with 3M users.",
     items: ["Vitest", "Playwright", "QA testing"],
     proof: ["Umamin", "Art N Me"],
   },
@@ -31,8 +31,8 @@ export const arsenal = [
   {
     title: "Game clients",
     summary: "Client-side scripts, mods and automation for native game clients.",
-    items: ["Lua", "C++", "C#"],
-    proof: ["Transmorpher", "Skua"],
+    items: ["C++", "Python", "Direct3D 9", "Lua", "C#"],
+    proof: ["Eclipse", "Transmorpher", "Skua"],
   },
   {
     title: "Delivery",

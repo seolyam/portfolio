@@ -13,7 +13,7 @@ export const site = {
   },
   focus: "Next.js · TypeScript · Supabase",
   lead: "Web Dev Lead, GDG on Campus USLS",
-  scale: "Umamin contributor, 2.6M+ users",
+  scale: "Umamin contributor, 3M+ users",
   education: "BS IT, Magna Cum Laude, 2026",
 };
 
@@ -30,7 +30,7 @@ export const principles = [
   },
   {
     title: "Tested at scale.",
-    body: "QA on Umamin, through 2.6M users and 14.5M visits, taught me to treat scale as a design input, not an afterthought.",
+    body: "QA on Umamin, through 3M users and 17.5M visits, taught me to treat scale as a design input, not an afterthought.",
   },
   {
     title: "Quiet by default.",

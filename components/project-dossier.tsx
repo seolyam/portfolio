@@ -139,7 +139,11 @@ function PlateFigure({ plate, index, liveUrl }: { plate: Plate; index: string; l
   );
 }
 
-function SourceLinks({ project }: { project: Pick<Project, "title" | "repositoryUrl" | "liveUrl"> }) {
+function SourceLinks({
+  project,
+}: {
+  project: Pick<Project, "title" | "repositoryUrl" | "liveUrl" | "communityUrl">;
+}) {
   return (
     <div className="flex gap-5">
       {project.repositoryUrl && (
@@ -150,6 +154,11 @@ function SourceLinks({ project }: { project: Pick<Project, "title" | "repository
       {project.liveUrl && (
         <OutLink href={project.liveUrl} label={`${project.title}, live site`}>
           Live
+        </OutLink>
+      )}
+      {project.communityUrl && (
+        <OutLink href={project.communityUrl} label={`${project.title} community on Discord`}>
+          Discord
         </OutLink>
       )}
     </div>
